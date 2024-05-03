@@ -50,7 +50,7 @@ running = True
 while running:
     screen.blit(background, (0, 0))
     mouse_x, mouse_y = pygame.mouse.get_pos()
-    gun_x = max(0, min(mouse_x - gun_width // 2, SCREEN_WIDTH - gun_width))
+    gun_x = max(0, min(mouse_x - gun_width // 2 + 46, SCREEN_WIDTH - gun_width))# Ограничиваем положение пушки в пределах экрана + 46 px компенсирует несимметричность картинки с пушкой
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
