@@ -12,6 +12,8 @@ pygame.display.set_caption("A L I E N")
 icon = pygame.image.load("img/tir.jpg")
 pygame.display.set_icon(icon)
 
+#background_image = pygame.image.load("img/fon.png")
+
 target_image = pygame.image.load("img/target.png")
 target_width = 175
 target_height = 200
@@ -61,8 +63,10 @@ while running:
                 target_y = random.randint(0, SCREEN_HEIGHT - target_height)
                 shot_count += 1
 
+    #screen.blit(background_image, (0, 0))
     screen.blit(target_image, (target_x, target_y))
     screen.blit(gun_image, (gun_x, SCREEN_HEIGHT - gun_height))
+
 
     # Рендеринг текста для отображения количества выстрелов, после всех объектов
     text = font.render(f'Выстрелы: {shot_count}', True, (255, 255, 255))
