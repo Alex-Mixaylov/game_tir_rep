@@ -49,7 +49,7 @@ class Target(pygame.sprite.Sprite):
         center_x, center_y = SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2
         distance = math.sqrt((self.rect.centerx - center_x) ** 2 + (self.rect.centery - center_y) ** 2)
         max_distance = math.sqrt(center_x**2 + center_y**2)
-        scale_factor = 1.85 - 1.15 * (distance / max_distance)  # Scaling from 50% to 175%
+        scale_factor = 0.95 - 0.35 * (distance / max_distance)  # Scaling
 
         new_width = int(self.original_image.get_width() * scale_factor)
         new_height = int(self.original_image.get_height() * scale_factor)
