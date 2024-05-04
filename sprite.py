@@ -16,6 +16,10 @@ gun_image = pygame.image.load("img/gun.png")
 gun_width = 250
 gun_height = 140
 
+background_image = pygame.image.load("img/fon.png")
+background_width = 900
+background_height = 600
+
 # Создание шрифта
 font = pygame.font.Font("font/calibri.ttf", 30)
 
@@ -38,7 +42,7 @@ class Target(pygame.sprite.Sprite):
 target = Target()
 
 # Функция для создания радиального градиента
-def create_radial_gradient(surface, center_color, outer_color, power=0.45):
+def create_radial_gradient(surface, center_color, outer_color, power=1.35):
     center_x, center_y = surface.get_size()[0] // 2, surface.get_size()[1] // 2
     max_distance = math.sqrt(center_x**2 + center_y**2)
     for x in range(surface.get_width()):
@@ -68,11 +72,13 @@ while running:
                 target.reset()
                 shot_count += 1
 
+    screen.blit(background_image, (0, 0))
     screen.blit(target.image, target.rect)
     screen.blit(gun_image, (gun_x, SCREEN_HEIGHT - gun_height))
 
     text = font.render(f'Выстрелы: {shot_count}', True, (255, 255, 255))
     screen.blit(text, (10, SCREEN_HEIGHT - 50))
+
 
     pygame.display.update()
 
